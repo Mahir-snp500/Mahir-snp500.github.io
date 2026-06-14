@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tokxnyc.me</title>
+  <meta name="description" content="A free, fast, one-page website template you can publish on your own domain using GitHub Pages, Cloudflare Pages, or Netlify." />
+  <meta property="og:title" content="Your Website" />
+  <meta property="og:description" content="A clean one-page website for tokxnyc.me." />
+  <meta property="og:type" content="website" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=zodiak@400,700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+      --color-bg: #f7f6f2; --color-surface: #f9f8f5; --color-surface-2: #fbfbf9; --color-surface-offset: #edeae5; --color-border: #d4d1ca; --color-text: #28251d; --color-text-muted: #7a7974; --color-text-faint: #bab9b4; --color-primary: #01696f; --color-primary-hover: #0c4e54; --color-text-inverse: #f9f8f4;
+      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(26,24,20,.06); --shadow-md: 0 8px 24px rgba(26,24,20,.08);
+      --font-body: 'Satoshi', Inter, sans-serif; --font-display: 'Zodiak', Georgia, serif;
+      --transition: 180ms cubic-bezier(0.16,1,0.3,1);
+      --content: 1120px;
+    }
+    [data-theme="dark"] {
+      --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d; --color-surface-offset: #22211f; --color-border: #393836; --color-text: #cdccca; --color-text-muted: #979591; --color-text-faint: #6a6864; --color-primary: #4f98a3; --color-primary-hover: #227f8b; --color-text-inverse: #171614; --shadow-sm: 0 1px 2px rgba(0,0,0,.2); --shadow-md: 0 8px 24px rgba(0,0,0,.28);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d; --color-surface-offset: #22211f; --color-border: #393836; --color-text: #cdccca; --color-text-muted: #979591; --color-text-faint: #6a6864; --color-primary: #4f98a3; --color-primary-hover: #227f8b; --color-text-inverse: #171614; --shadow-sm: 0 1px 2px rgba(0,0,0,.2); --shadow-md: 0 8px 24px rgba(0,0,0,.28);
+      }
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:none;text-size-adjust:none}
+    body{margin:0;min-height:100dvh;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:var(--text-base);line-height:1.65}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    .skip-link{position:absolute;left:var(--space-4);top:-3rem;background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);z-index:100}
+    .skip-link:focus{top:var(--space-4)}
+    .container{width:min(calc(100% - 2rem), var(--content));margin-inline:auto}
+    .header{position:sticky;top:0;z-index:40;background:color-mix(in oklab, var(--color-bg) 88%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid color-mix(in oklab, var(--color-text) 12%, transparent)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-4) 0}
+    .brand{display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .brand-mark{width:2rem;height:2rem;color:var(--color-primary)}
+    .nav-links{display:flex;align-items:center;gap:var(--space-4)}
+    .nav-links a{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .nav-actions{display:flex;align-items:center;gap:var(--space-3)}
+    .theme-toggle,.menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent);border-radius:var(--radius-full);background:var(--color-surface);color:var(--color-text)}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 var(--space-5);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:700;transition:all var(--transition)}
+    .button-primary{background:var(--color-primary);color:var(--color-text-inverse)}
+    .button-primary:hover{background:var(--color-primary-hover)}
+    .button-secondary{border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent);background:var(--color-surface);color:var(--color-text)}
+    .hero{padding:clamp(var(--space-12), 10vw, 7rem) 0 var(--space-12)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-8);align-items:end}
+    .eyebrow{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.18em;color:var(--color-primary);font-weight:700;margin-bottom:var(--space-4)}
+    h1,h2,h3{margin:0;line-height:1.08}
+    h1{font-family:var(--font-display);font-size:var(--text-2xl);max-width:11ch;margin-bottom:var(--space-5)}
+    h2{font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:var(--space-4)}
+    h3{font-size:var(--text-lg);margin-bottom:var(--space-3)}
+    p{margin:0;max-width:65ch;color:var(--color-text-muted)}
+    .hero-copy p{margin-bottom:var(--space-6)}
+    .hero-card,.card,.cta-panel{background:var(--color-surface);border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
+    .hero-card{padding:var(--space-6);display:grid;gap:var(--space-5)}
+    .stat{padding-bottom:var(--space-4);border-bottom:1px solid color-mix(in oklab, var(--color-text) 10%, transparent)}
+    .stat:last-child{padding-bottom:0;border-bottom:0}
+    .stat strong{display:block;font-size:var(--text-lg);color:var(--color-text)}
+    .section{padding:clamp(var(--space-10), 8vw, var(--space-16)) 0}
+    .section-alt{background:color-mix(in oklab, var(--color-surface) 70%, var(--color-bg))}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
+    .card{padding:var(--space-6)}
+    .card p{font-size:var(--text-sm)}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--space-8);align-items:start}
+    .list{display:grid;gap:var(--space-4)}
+    .list-item{padding:var(--space-4);border-radius:var(--radius-lg);background:var(--color-surface-2);border:1px solid color-mix(in oklab, var(--color-text) 8%, transparent)}
+    .cta-panel{padding:var(--space-8);display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-6)}
+    .footer{padding:var(--space-8) 0;border-top:1px solid color-mix(in oklab, var(--color-text) 12%, transparent)}
+    .footer-row{display:flex;justify-content:space-between;gap:var(--space-4);align-items:center}
+    .muted{color:var(--color-text-muted)}
+    .small{font-size:var(--text-sm)}
+    .menu-toggle{display:none}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @media (max-width: 900px){
+      .hero-grid,.about-grid,.grid-3,.cta-panel{grid-template-columns:1fr;display:grid}
+      .nav-links{display:none;position:absolute;left:1rem;right:1rem;top:calc(100% + .5rem);padding:var(--space-4);background:var(--color-surface);border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);flex-direction:column;align-items:flex-start}
+      .nav-links.open{display:flex}
+      .menu-toggle{display:inline-flex}
+      .button.hide-mobile{display:none}
+      .footer-row{flex-direction:column;align-items:flex-start}
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .reveal{opacity:1;transform:none;transition:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Homepage">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="4"/>
+          <path d="M20 36L31 24L44 40" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M25 40H43" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span>tokxnyc.me</span>
+      </a>
+      <nav aria-label="Primary">
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <div class="nav-links" data-nav-links>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="button button-primary hide-mobile" href="#contact">Get started</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal visible">
+          <div class="eyebrow">Free website starter</div>
+          <h1>tokxnyc.me is ready for a clean website you can launch today.</h1>
+          <p>This starter page is now set up for tokxnyc.me. Replace this text with what you do, who you help, and the one action you want visitors to take.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a class="button button-primary" href="#contact">Start here</a>
+            <a class="button button-secondary" href="#services">See sections</a>
+          </div>
+        </div>
+        <aside class="hero-card reveal visible" aria-label="Website highlights">
+          <div class="stat"><strong>Free hosting</strong><span class="muted small">Works with GitHub Pages, Cloudflare Pages, and Netlify.</span></div>
+          <div class="stat"><strong>Custom domain ready</strong><span class="muted small">Point your domain DNS to your chosen free host.</span></div>
+          <div class="stat"><strong>Easy to edit</strong><span class="muted small">Open the file, change the text, add your links, and publish.</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="services">
+      <div class="container">
+        <div class="eyebrow">What to customize</div>
+        <h2>Three sections most people need first.</h2>
+        <div class="grid-3" style="margin-top:2rem;">
+          <article class="card reveal">
+            <h3>Offer</h3>
+            <p>Say exactly what you provide. Example: research support, consulting, tutoring, writing, local services, or a publication.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Trust</h3>
+            <p>Add a short proof point such as your background, publications, clients, testimonials, or years of experience.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Action</h3>
+            <p>Use one clear call to action like email me, book a call, read the blog, or request a quote.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow">About this template</div>
+          <h2>Designed to be simple, readable, and not look like a generic AI page.</h2>
+        </div>
+        <div class="list">
+          <div class="list-item reveal">
+            <strong>Fast by default.</strong>
+            <p>One HTML file, no framework, no build process, and minimal JavaScript.</p>
+          </div>
+          <div class="list-item reveal">
+            <strong>Accessible by default.</strong>
+            <p>Semantic sections, visible focus states, a skip link, and mobile-friendly touch targets.</p>
+          </div>
+          <div class="list-item reveal">
+            <strong>Good starting point.</strong>
+            <p>You can turn this into a personal site, small business page, portfolio, or simple landing page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div>
+            <div class="eyebrow">Contact</div>
+            <h2>Make this section yours.</h2>
+            <p>Replace the sample email link below with your real one, or swap it for WhatsApp, a booking link, Google Form, or newsletter signup.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
+            <a class="button button-primary" href="mailto:you@example.com">you@example.com</a>
+            <a class="button button-secondary" href="https://github.com" target="_blank" rel="noopener noreferrer">Your portfolio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <p class="small muted">Edit this file, upload it to a free host, then connect tokxnyc.me.</p>
+      <p class="small muted">Built for tokxnyc.me.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      function icon(mode){
+        return mode === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      }
+      toggle.innerHTML = icon(theme);
+      toggle.addEventListener('click', function(){
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        toggle.innerHTML = icon(theme);
+      });
+
+      const menuButton = document.querySelector('[data-menu-toggle]');
+      const navLinks = document.querySelector('[data-nav-links]');
+      if (menuButton && navLinks) {
+        menuButton.addEventListener('click', function(){
+          const open = navLinks.classList.toggle('open');
+          menuButton.setAttribute('aria-expanded', String(open));
+        });
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
